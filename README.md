@@ -3,7 +3,7 @@
 
 things I ran into with zabbix
 
-#samba_share_test 
+##samba_share_test 
 
 (template + script, script goes into the external scripts folder, usually /usr/lib/zabbix/externalscripts/ )
 - needed to check if a share is available or not on the network, returns 1 if the share is accessible and can be written to, 0 if not.
@@ -15,3 +15,7 @@ things I ran into with zabbix
 
  {$SMB_USER}
 
+##samba_share_performance_test
+
+
+(template + script, script goes into the external scripts folder, usually /usr/lib/zabbix/externalscripts/ )
