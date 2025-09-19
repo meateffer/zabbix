@@ -3,6 +3,8 @@
 
 things I ran into with zabbix
 
+** to add any kind of checks to a something, either template or a host, first add the template or host and then check the items tab in the created object, for be this was not obvious for some reason :-)
+
 ## samba_share_test 
 
 (template + script, script goes into the external scripts folder, usually /usr/lib/zabbix/externalscripts/ )
