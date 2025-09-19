@@ -6,5 +6,7 @@ things I ran into with zabbix
  #macros (can be set either in the template or on the host, or both, obviously the host macros take precedence)
 
  {$SMB_PASS}
+ 
  {$SMB_SUBDIR} - by default zbxprobe, it's the subdir the script is trying to write to
+ 
  {$SMB_USER}
