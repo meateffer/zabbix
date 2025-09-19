@@ -1,0 +1,28 @@
+zabbix_export:
+  version: '7.2'
+  template_groups:
+    - uuid: a571c0d144b14fd4a87a9d9b2aa9fcd6
+      name: Templates/Applications
+  templates:
+    - uuid: 63d2cd8165de4c449216548e56c60aa3
+      template: smb_probe_performance
+      name: 'samba share test performance'
+      groups:
+        - name: Templates/Applications
+      items:
+        - uuid: b29d853a18224599ab7ec6a49083b718
+          name: smb_probe_perf
+          type: EXTERNAL
+          key: 'smb_probe_perf.sh["//{HOST.IP}/tmp","{$SMB_USER}","{$SMB_PASS}","{$SMB_SUBDIR}",{$SMB_SIZE_MB}]'
+          delay: 5m
+          value_type: TEXT
+          timeout: 45s
+      macros:
+        - macro: '{$SMB_PASS}'
+          type: SECRET_TEXT
+        - macro: '{$SMB_SIZE_MB}'
+          value: '8'
+        - macro: '{$SMB_SUBDIR}'
+          value: zbxprobe
+        - macro: '{$SMB_USER}'
+          value: QUATTRO\cezar

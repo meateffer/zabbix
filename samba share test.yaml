@@ -1,0 +1,24 @@
+zabbix_export:
+  version: '7.2'
+  template_groups:
+    - uuid: a571c0d144b14fd4a87a9d9b2aa9fcd6
+      name: Templates/Applications
+  templates:
+    - uuid: 3b4178e8701e4cb886a0d24831a76c6b
+      template: smb_probe
+      name: 'samba share test'
+      groups:
+        - name: Templates/Applications
+      items:
+        - uuid: 5bc2ef27705a44d7944d39a70f88b788
+          name: 'smb probe'
+          type: EXTERNAL
+          key: 'smb_probe.sh["//{HOST.IP}/tmp","{$SMB_USER}","{$SMB_PASS}","{$SMB_SUBDIR}"]'
+          timeout: 15s
+      macros:
+        - macro: '{$SMB_PASS}'
+          type: SECRET_TEXT
+        - macro: '{$SMB_SUBDIR}'
+          value: zbxprobe
+        - macro: '{$SMB_USER}'
+          value: QUATTRO\cezar
